@@ -22,7 +22,7 @@ jobs:
     env:
       IMAGE_NAME: pythoncodelife/backend-ml-recommendation-service
       IMAGE_TAG: latest
-      LIVE_URL: https://YOUR-ML-RECOMMENDATION-URL.up.railway.app/
+      LIVE_URL: https://backend-ml-recommendation-service-production.up.railway.app/
 
     steps:
 
