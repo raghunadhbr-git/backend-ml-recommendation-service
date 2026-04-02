@@ -1,0 +1,32 @@
+name: 🚀 Flask DB Migration (Using Secrets)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: 🐍 Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: 📦 Install Requirements
+        run: |
+          pip install -r requirements.txt
+
+      - name: 🧱 Run Flask DB Upgrade
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: |
+          flask db upgrade
+
+      - name: ✅ Done
+        run: |
+          echo "Migration completed (or already up-to-date)"
